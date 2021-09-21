@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Sorting Algorithms</title>
+  </head>
+  <body>
+    <div class="flex-wrapper">
+      <div class="bar-container"></div>
+      <div class="slider-wrapper">
+        <div class="slider">
+          <input type="range" class="slider" min="2" max="50" value="26" />
+        </div>
+        <p class="bar-number">26</p>
+      </div>
+
+      <select name="algorithm-select" id="algorithm-select">
+        <option value="insertion-sort">Bubble Sort</option>
+        <option value="insertion-sort">Selection Sort</option>
+        <option value="insertion-sort">Insertion Sort</option>
+      </select>
+      <button class="randomize">Randomize</button>
+      <button class="sort">Sort</button>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
