@@ -59,6 +59,39 @@ class SortingController {
   randomize() {
     const bars = this.barContainer.childNodes;
   }
+
+  // Sorting Algorithms
+  insertionSort() {
+    for (let j = 1; j < this.numberOfBars; j++) {
+      let predecessor = null;
+      let successor = null;
+      let max = this.list;
+      let p1 = this.list;
+      for (let i = j; i < this.numberOfBars - 1; i++, p1 = p1.next) {
+        if (p1.next.key.value > max.key.value) {
+          predecessor = p1;
+          successor = p1.next.next;
+          max = p1.next;
+        }
+      }
+      //remove heighest element from list
+      if (max.key.value > p1.next.key.value) {
+        // max is first element
+        if (predecessor != null) {
+          predecessor.next = successor;
+          // max not first element
+        } else {
+          this.list = this.list.next;
+        }
+        //paste max in right position
+        let tmp = p1.next.next;
+        p1.next.next = max;
+        max.next = tmp;
+      }
+      // generate Bars
+      this.generateBars();
+    }
+  }
 }
 
 class Node {
@@ -89,4 +122,8 @@ controller.numberSlider.addEventListener("input", function (e) {
 
 controller.randomizeBtn.addEventListener("click", function () {
   controller.randomize();
+});
+
+controller.sortBtn.addEventListener("click", function () {
+  controller.insertionSort();
 });
